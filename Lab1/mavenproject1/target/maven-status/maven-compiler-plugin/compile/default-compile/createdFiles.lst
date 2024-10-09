@@ -1,2 +1,4 @@
-com\mycompany\mavenproject1\CalcServlet.class
-com\mycompany\mavenproject1\HelloServlet.class
+com/mycompany/lab1/JakartaRestConfiguration.class
+com/mycompany/lab1/resources/JakartaEE10Resource.class
+com/mycompany/lab1/CalcServlet.class
+com/mycompany/lab1/HelloServlet.class

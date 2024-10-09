@@ -2,18 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.mycompany.mavenproject1;
-
+package com.mycompany.lab1;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -36,6 +32,8 @@ public class CalcServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String wynik = Oblicz(request);
         String helloString = "";
         
         HttpSession sesja = request.getSession(true);
@@ -48,7 +46,9 @@ public class CalcServlet extends HttpServlet {
             wartosc = new ArrayList<String>();
             sesja.setAttribute(SESSION_HISTORY_ID,wartosc);
         }
-        
+        else{
+            wartosc.add(wynik);
+        }
         
         Cookie[] cookies = request.getCookies();
         if ( cookies != null ){ 
@@ -62,47 +62,8 @@ public class CalcServlet extends HttpServlet {
                 }
             }
         }
-        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if(request.getParameter("first") == null || request.getParameter("first").trim().equals("") || request.getParameter("second") == null || request.getParameter("second").trim().equals("")){
-                out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CalcServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.print("<h1>Brakuje ktoregos elementu</h1>");
-            out.println("</body>");
-            out.println("</html>");
-            }
-            else {
-                Float first=Float.parseFloat(request.getParameter("first"));
-            Float second=Float.parseFloat(request.getParameter("second"));
-            String operation=request.getParameter("operation");
-            double wynik = 0.0;
-            
-            switch(operation){
-                case "+":
-                    wynik = first + second;
-                    break;
-                case "-":
-                    wynik = first - second;
-                    break;
-                case "*":
-                    wynik = first * second;
-                    break;
-                case "/":
-                    if (second == 0){
-                        out.println("Nie dziel przez 0");
-                        break;
-                    }
-                    else{
-                        wynik = first / second;
-                        break;
-                    }
-            }
-            wartosc.add(Float.toString(first) + " " + operation + " " + Float.toString(second) + " = " + Double.toString(wynik));
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -121,22 +82,51 @@ public class CalcServlet extends HttpServlet {
             out.println("<div>"+showHistory(wartosc)+"</div>");
             out.println("</body>");
             out.println("</html>");
-            }
-            
-            }
-            
-            
         }
-
-    private String showHistory(ArrayList<String> list) {
+    }
+    
+    public String showHistory(ArrayList<String> list){
         String temp = "";
         for(String s: list){
             temp+=s+"<br>";
         }
         return temp;
     }
+    
+    public String Oblicz(HttpServletRequest request){
+        try{
+            String sA = request.getParameter("a");
+            String sB = request.getParameter("b");
+            if((sA == null) || (sA.trim().equals("")) || (sB == null) || (sB.trim().equals(""))){
+                return "Brak parametru";
+            }
+            Float a=Float.valueOf(sA);
+            Float b=Float.valueOf(sB);
+            String action=request.getParameter("action");
+            switch(action){
+                case "+":{
+                    return a + " + " + b + " = " + (a+b);
+                }
+                case "-":{
+                    return a + " - " + b + " = " + (a-b);
+                }
+                case "/":{
+                    if(b==0){
+                        return "Nie dziel przez 0!";
+                    }
+                    return a + " / " + b + " = " + (a/b);
 
-   
+                }
+                case "*":{
+                    return a + " * " + b + " = " + (a*b);
+                }
+                default:
+                    return "Oops! Cusko nie halo :c";
+            }
+        } catch(NumberFormatException e){
+            return "Błąd formatu liczby!";
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -175,5 +165,6 @@ public class CalcServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
+
 }
