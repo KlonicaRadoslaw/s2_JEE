@@ -1,7 +1,7 @@
 <%-- 
     Document   : errorPage
     Created on : 17 paź 2023, 08:18:36
-    Author     : mrkaszka
+    Author     : student
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" isErrorPage="true"%>
@@ -16,6 +16,6 @@
         <p>Pojawił się następujący błąd:<br>
         <%= exception.getMessage() %>. <br />
         </p>
-        <a href="/LAB2/calc.jsp">Powrót do kalkulatora</a>
+        <a href="/LAB2_war/calc.jsp">Powrót do kalkulatora</a>
     </body>
 </html>

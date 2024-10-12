@@ -1,7 +1,7 @@
 <%-- 
     Document   : calc
     Created on : 14 paź 2023, 16:58:59
-    Author     : mrkaszka
+    Author     : student
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" errorPage="errorPage.jsp"%>
@@ -16,6 +16,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+    <%
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date now = new Date();
+        String date = dateFormat.format(now);
+        out.println(date);
+    %>
         <jsp:useBean id="loan" class="com.mycompany.lab2.LoanBean" scope="session" />
         <jsp:setProperty name="loan" property="*" />
         <h1>Kalkulator rat</h1>
@@ -28,7 +34,7 @@
                 <label for="lrat">Liczba rat</label>
                 <input type="text" name="lrat" value="<%= loan.getLrat() %>"/><br>
                 <input type="submit" name="wyslij" value="wyslij"/>
-            </form
+            </form>
         </div>
         <div>Rata miesięczna: <%= loan.getRata() %></div>
     </body>
