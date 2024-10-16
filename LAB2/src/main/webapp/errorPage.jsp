@@ -16,6 +16,6 @@
         <p>Pojawił się następujący błąd:<br>
         <%= exception.getMessage() %>. <br />
         </p>
-        <a href="/LAB2_war/calc.jsp">Powrót do kalkulatora</a>
+        <a href="http://localhost:8080/LAB2_war/calc.jsp?kwota=1000.0&procent=10.0&lrat=10&wyslij=wyslij">Powrót do kalkulatora</a>
     </body>
 </html>

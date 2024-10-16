@@ -41,6 +41,10 @@ public class LoanBean implements Serializable{
     }
     
     public String getRata(){
+        if (procent == 0 || lrat == 0 || kwota == 0)
+        {
+            throw new IllegalArgumentException();
+        }
         try{
             Double p=procent/12/100;
             Double rata = (kwota*p)/(1-(1/(Math.pow((1+p),lrat))));
