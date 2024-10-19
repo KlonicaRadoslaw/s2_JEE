@@ -1,0 +1,6 @@
+com/mycompany/lab4/resources/JakartaEE10Resource.class
+com/mycompany/lab4/dao/PracownikDao.class
+com/mycompany/lab4/JakartaRestConfiguration.class
+com/mycompany/lab4/dao/PracownikDao$1.class
+com/mycompany/lab4/beans/Pracownik.class
+com/mycompany/lab4/controllers/PracownikController.class
