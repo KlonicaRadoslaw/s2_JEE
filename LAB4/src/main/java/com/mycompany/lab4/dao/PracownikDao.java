@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 /**
  *
- * @author mrkaszka
+ * @author student
  */
 public class PracownikDao {
 

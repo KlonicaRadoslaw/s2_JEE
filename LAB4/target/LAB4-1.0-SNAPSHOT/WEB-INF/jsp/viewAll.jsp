@@ -1,7 +1,7 @@
 <%-- 
     Document   : viewAll
     Created on : 29 paź 2023, 14:22:05
-    Author     : mrkaszka
+    Author     : student
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

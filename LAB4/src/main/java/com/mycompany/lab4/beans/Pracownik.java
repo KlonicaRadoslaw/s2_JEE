@@ -6,7 +6,7 @@ package com.mycompany.lab4.beans;
 
 /**
  *
- * @author mrkaszka
+ * @author student
  */
 public class Pracownik {
     private int id;

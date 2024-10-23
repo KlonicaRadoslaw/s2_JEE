@@ -1,7 +1,7 @@
 <%-- 
     Document   : error
     Created on : 29 paź 2023, 14:22:11
-    Author     : mrkaszka
+    Author     : student
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,5 +20,6 @@
         ${ste}
     </c:forEach>
 </p>
+<a href="/LAB4/">Powrot</a><br />
 </body>
 </html>

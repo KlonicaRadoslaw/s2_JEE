@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
- * @author mrkaszka
+ * @author student
  */
 @Controller
 public class PracownikController {
