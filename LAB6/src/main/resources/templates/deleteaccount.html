@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head"></head>
+<body>
+<div th:include="layout :: navigationPanel"></div>
+<div class="container mt-5">
+    <h1 class="text-center">Czy na pewno chcesz usunąć konto?</h1>
+    <form action="/account/delete" method="POST">
+        <div class="text-center">
+            <a class="btn btn-secondary" th:href="@{/profile}">Nie</a>
+            <input type="submit" value="Tak" class="btn btn-danger"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

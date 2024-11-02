@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head"></head>
+<body>
+<div th:include="layout :: navigationPanel"></div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form th:action="@{/profile/edit}" method="POST" th:object="${user}">
+                <legend>Edycja profilu</legend>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" name="login" placeholder="Login" th:field="*{login}">
+                    <label for="login">Login</label>
+                    <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}"
+                          class="text-danger error-message">Error</span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" name="login" placeholder="Imię" th:field="*{name}">
+                    <label for="name">Imię</label>
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                          class="text-danger error-message">Error</span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" name="surname" placeholder="Nazwisko" th:field="*{surname}">
+                    <label for="surname">Nazwisko</label>
+                    <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-danger error-message">Error</span>
+                </div>
+                <button type="submit" class="btn btn-primary">Zapisz</button>
+                
+                
+                
+                    
+                    
+                    
+                
+                
+                
+            </form>
+        </div>
+    </div>
+</div>
+<div th:include="layout :: footer"></div>
+</body>
+</html>

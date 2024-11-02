@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head"></head>
+<body>
+<div th:include="layout :: navigationPanel"></div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form th:action="@{/register}" method="POST" th:object="${user}" id="register-form">
+                <legend>Rejestracja</legend>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="name" name="login" placeholder="Wprowadź imię" th:field="*{name}">
+                        <label for="name">Imię</label>
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                          class="text-danger error-message">Error</span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="name" name="surname" placeholder="Wprowadź nazwisko" th:field="*{surname}">
+                        <label for="surname">Nazwisko</label>
+                        <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-danger error-message">Error</span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="name" name="login" placeholder="Wprowadź login" th:field="*{login}">
+                        <label for="login">Login</label>
+                        <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}"
+                          class="text-danger error-message">Error</span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Wprowadź hasło" th:field="*{password}">
+                        <label for="password">Hasło</label>
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger error-message">Error</span>
+                    </div>
+                <button type="submit" class="btn btn-primary btn-block">Zarejestruj się</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:include="layout :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head"></head>
+<body>
+<div th:include="layout :: navigationPanel"></div>
+<div class="container mt-5">
+    <h1 class="text-center" th:text="'Witaj ' + ${user.name} + ' ' + ${user.surname}"></h1>
+</div>
+<div th:include="layout :: footer"></div>
+</body>
+</html>

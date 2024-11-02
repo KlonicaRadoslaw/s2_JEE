@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: head"></head>
+    <body>
+        <div th:include="layout :: navigationPanel"></div>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form th:action="@{/login}" method="POST">
+                        <legend>Logowanie</legend>
+                        <p th:if="${param.error}" class="alert alert-danger">Nieprawidłowe dane logowania</p>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" name="login" placeholder="Login">
+                            <label for="floatingInput">Login</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPassword" name="passwd" placeholder="Hasło">
+                            <label for="floatingPassword">Hasło</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Zaloguj się</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div th:include="layout :: footer"></div>
+    </body>
+</html>
